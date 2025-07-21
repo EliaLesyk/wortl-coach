@@ -28,18 +28,18 @@ bot.start((ctx) => {
   challengeScheduler.addUser(userId);
 });
 
-bot.help((ctx) => ctx.reply(`🤖 **German Language Coach Commands:**
+bot.help((ctx) => ctx.reply(`🤖 German Language Coach Commands:
 
-📝 **Send text or voice messages** for instant feedback
+📝 Send text or voice messages for instant feedback
 
-📚 **Commands:**
+📚 Commands:
 • /review - Generate exercise using your saved phrases
 • /practice - Generate a general practice exercise
 • /challenges on - Enable automated challenges (2x/week)
 • /challenges off - Disable automated challenges
 • /challenges status - Check your challenge status
 
-💡 **Tips:**
+💡 Tips:
 • /review creates exercises based on phrases from your feedback history
 • /practice generates general exercises for any topic
 • Automated challenges appear randomly 2x per week
@@ -73,7 +73,7 @@ bot.command('challenges', async (ctx) => {
     case 'status':
       const status = challengeScheduler.getStatus();
       const isActive = status.activeUsers.includes(userId);
-      await ctx.reply(`📊 **Challenge Status:**\n\n` +
+      await ctx.reply(`📊 Challenge Status:\n\n` +
         `🔄 Automatisierte Herausforderungen: ${isActive ? '✅ Aktiv' : '❌ Inaktiv'}\n` +
         `👥 Aktive Nutzer: ${status.totalUsers}\n` +
         `⏰ Geplante Herausforderungen: ${status.scheduledChallenges}`);
