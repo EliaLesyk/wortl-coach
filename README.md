@@ -223,6 +223,33 @@ The bot automatically sends challenges twice per week:
 - **`src/handlers.js`**: Message and command handlers
 - **`index.js`**: Google Cloud Functions entry point
 
+## 💰 Estimated Monthly Costs
+
+### **Cost Breakdown (USD/month)**
+
+| Service | Usage | Cost |
+|---------|-------|------|
+| **Google Cloud Run** | 1 instance, minimal usage | $0.00 - $5.00 |
+| **Firestore** | ~1GB storage, 50K reads/writes | $0.00 - $2.00 |
+| **Speech-to-Text API** | 100 minutes/month | $1.50 |
+| **Gemini AI API** | 1K requests/month | $0.50 |
+| **Cloud Logging** | Basic logging | $0.00 - $1.00 |
+| **Total Estimated** | **Per month** | **$2.00 - $10.00** |
+
+### **Cost Optimization Tips**
+- **Cloud Run**: Scales to zero when not in use (free tier: 2M requests/month)
+- **Firestore**: Free tier includes 1GB storage and 50K reads/writes/day
+- **Speech-to-Text**: Free tier includes 60 minutes/month
+- **Gemini AI**: Free tier includes 15 requests/minute
+
+### **Usage Scenarios**
+- **Light Usage** (1 user, occasional practice): $2-5/month
+- **Moderate Usage** (1 user, daily practice): $5-10/month
+- **Heavy Usage** (multiple users): $10-25/month
+
+### **Cost Monitoring**
+Monitor your costs in [Google Cloud Console](https://console.cloud.google.com/billing) and set up billing alerts to avoid surprises.
+
 ## 🔒 Security
 
 ### User Access Control
