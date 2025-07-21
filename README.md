@@ -29,6 +29,39 @@
 - **Importance Ratings**: Mark phrases by importance (1-5 scale)
 - **Category Organization**: Phrases are categorized by type (improvement, pronunciation, grammar)
 
+## 🧠 **How Phrase Learning Works**
+
+### **Building Your Active Vocabulary**
+Wortl Coach uses a sophisticated approach to help you gradually build your active German vocabulary:
+
+#### **1. Phrase Extraction & Storage**
+- **Automatic Detection**: When you send text or voice messages, the AI identifies phrases that could be improved
+- **Smart Categorization**: Phrases are automatically categorized as "improvement", "pronunciation", or "grammar"
+- **Context Preservation**: Each phrase is stored with its original context and suggested improvement
+
+#### **2. Spaced Repetition Logic**
+- **Importance-Based Prioritization**: Phrases are ranked by importance (1-5 scale) based on frequency and impact
+- **Practice Frequency Tracking**: The system tracks how often you've practiced each phrase
+- **Smart Scheduling**: Less practiced phrases appear more frequently in `/review` exercises
+
+#### **3. Active Vocabulary Development**
+- **Gradual Integration**: Phrases are introduced slowly through targeted practice exercises
+- **Contextual Learning**: You practice phrases in realistic business scenarios, not in isolation
+- **Confidence Building**: As you practice phrases more, they move from "passive" to "active" vocabulary
+
+#### **4. Personalized Learning Path**
+- **Your Mistakes → Your Curriculum**: The bot learns from your specific errors and focuses on your weak areas
+- **Adaptive Difficulty**: Exercises adjust based on your current skill level and practice history
+- **Reinforcement**: Important phrases are revisited through automated challenges to ensure retention
+
+#### **Example Learning Flow:**
+1. **You write**: "Ich habe ein Meeting mit dem Kunde"
+2. **AI suggests**: "Ich habe ein Meeting mit dem **Kunden**" (grammar improvement)
+3. **Phrase stored**: "Kunde" → "Kunden" (importance: 4, category: grammar)
+4. **Later practice**: `/review` includes this phrase in a business scenario
+5. **Reinforcement**: Automated challenges revisit this phrase until mastered
+6. **Result**: "Kunden" becomes part of your active vocabulary
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -73,9 +106,6 @@ gcloud projects add-iam-policy-binding YOUR_PROJECT_ID \
 gcloud projects add-iam-policy-binding YOUR_PROJECT_ID \
     --member="serviceAccount:telegram-bot-worker@YOUR_PROJECT_ID.iam.gserviceaccount.com" \
     --role="roles/speech.client"
-
-gcloud iam service-accounts keys create gcp-credentials.json \
-    --iam-account=telegram-bot-worker@YOUR_PROJECT_ID.iam.gserviceaccount.com
 ```
 
 ### 3. Set Up Telegram Bot
@@ -110,14 +140,11 @@ GEMINI_API_KEY=your_gemini_api_key_here
 # Security: Allowed users (comma-separated Telegram user IDs)
 ALLOWED_USERS=your_telegram_user_id_here
 
-# Optional: Google Cloud Credentials (for local development)
-GOOGLE_APPLICATION_CREDENTIALS=./gcp-credentials.json
-
 # Optional: Environment
 NODE_ENV=development
 ```
 
-**Important**: Never commit your `.env` file or `gcp-credentials.json` to version control!
+**Important**: Never commit your `.env` file to version control!
 
 **Security Note**: The `ALLOWED_USERS` environment variable contains sensitive personal information. Keep it secure and never expose it publicly.
 
@@ -223,7 +250,6 @@ npm install
 export TELEGRAM_BOT_TOKEN=your_token
 export GEMINI_API_KEY=your_key
 export GCLOUD_PROJECT=your_project
-export GOOGLE_APPLICATION_CREDENTIALS=./gcp-credentials.json
 
 # Run locally
 npm start
@@ -325,7 +351,7 @@ wortl-coach/
 │   └── config.js           # Configuration
 ├── index.js                # Cloud Functions entry point
 ├── package.json            # Dependencies
-├── gcp-credentials.json    # Google Cloud credentials
+
 └── README.md              # This file
 ```
 
