@@ -1,0 +1,30 @@
+{
+  "name": "wortl-coach",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx @google-cloud/functions-framework --target=telegramWebhook",
+    "deploy": "/Users/el/google-cloud-sdk/bin/gcloud functions deploy telegramWebhook --runtime nodejs20 --trigger-http --allow-unauthenticated --entry-point=telegramWebhook --update-secrets=TELEGRAM_BOT_TOKEN=telegram-bot-token:latest,GEMINI_API_KEY=gemini-api-key:latest --set-env-vars=GCLOUD_PROJECT=wortl-458307",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-speech": "node test-speech.js",
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": "20"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/firestore": "^7.11.3",
+    "@google-cloud/functions-framework": "^4.0.0",
+    "@google-cloud/speech": "^7.2.0",
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.10.0",
+    "telegraf": "^4.16.3"
+  },
+  "devDependencies": {
+    "eslint": "^9.31.0"
+  }
+}
